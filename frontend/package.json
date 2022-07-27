@@ -4,7 +4,7 @@
   "description": "",
   "keywords": [],
   "homepage": "./",
-  "main": "src/index.js",
+  "private": true,
   "engines": {
     "node": "16.16.0"
   },
@@ -15,11 +15,6 @@
     "@mui/material": "5.9.1",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "mongoose": "^6.4.6",
-    "qs": "^6.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^6.3.0",

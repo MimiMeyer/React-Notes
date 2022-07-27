@@ -28,7 +28,7 @@ const noteSchema = new mongoose.Schema({
 
 const note = mongoose.model("note",noteSchema);
 
-app.get("/", function (req,res){
+app.get("/notes", function (req,res){
     
     note.find((err,result) => {
         if(err){
@@ -64,9 +64,9 @@ app.post("/delete", function(req,res){
 if (process.env.NODE_ENV === 'production') {           
   app.use(express.static('front-end/build'));
 
-  app.get('*', (req, res) => {
+  app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-  });
+   });
 }
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {

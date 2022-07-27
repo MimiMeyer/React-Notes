@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
-// const PORT = process.env.PORT || 3000;
+const url = window.location.href;
 
 
 
@@ -12,19 +12,19 @@ import axios from "axios";
 function App() {
   const [listNotes, setNotes] = useState([]);
   useEffect(() => {
-    axios.get("/")
+    axios.get(url+"notes")
     .then (res => {
       setNotes(res.data);
-
 
     })
     .catch(err => console.log(err)
     )
 });
 
+
   function addNote(note) {
     setNotes((prevValue) => [...prevValue, note]);
-    axios.post('/add', note)
+    axios.post(url+'add', note)
     .catch((err)=> console.log(err));
     
   }
@@ -32,7 +32,7 @@ function App() {
   function deleteNote(id) {
     const updatedList = listNotes.filter((note, index) => index !== id);
     setNotes(updatedList);
-    axios.post("/delete", {idNote: id})
+    axios.post(url+"delete", {idNote: id})
       .catch((err) => console.log(err));
   }
   
